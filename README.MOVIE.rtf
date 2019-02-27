@@ -1,0 +1,110 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red255\green255\blue255;\red26\green26\blue26;
+\red0\green0\blue0;\red52\green52\blue52;}
+{\*\expandedcolortbl;;\cssrgb\c20000\c20000\c20000;\cssrgb\c100000\c100000\c100000;\cssrgb\c13333\c13333\c13333;
+\cssrgb\c0\c0\c0;\cssrgb\c26667\c26667\c26667;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid1\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28300\viewh17700\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs52 \cf2 \cb3 \expnd0\expndtw0\kerning0
+Objetivo:
+\f1\b0\fs32 \cf4 \cb3 \
+\
+\
+O objetivo do aplicativo \'e9 criar um aplicativo com 2 n\'edveis de navega\'e7\'e3o (filmes e detalhes do filme), que far\'e1 a seguinte funcionalidade.\
+\
+1 Ele buscar\'e1 os pr\'f3ximos filmes usando a API moviedb e exibir\'e1 os filmes (at\'e9 9 filmes).\
+2 Ele buscar\'e1 os filmes populares usando a API moviedb e exibir\'e1 os filmes (at\'e9 9 filmes).\
+3 Tamb\'e9m pesquisar\'e1 filmes com base nas palavras-chave e exibir\'e1 o resultado, podendo ser por g\'eanero.\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs52 \cf2 \cb3 \
+\pard\pardeftab720\partightenfactor0
+
+\b \cf2 \cb3 Especifica\'e7\'e3o:\
+\pard\pardeftab720\partightenfactor0
+
+\b0 \cf2 \cb3 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs32 \cf4 \cb3 Angular CLI 5 \
+\
+Node Package Manager (NPM)\cf4 \cb3 \
+\
+Instalei depend\'eancias do Bootstrap (v4.0.0) para executar o Bootstrap.\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs52 \cf2 \cb3 1.Cria\'e7\'e3o de servi\'e7o:
+\f1\b0\fs32 \cf4 \cb3 \
+\
+Foi feito um import do HttpClientModule, FormsModule e RouterModule em app.module.ts. \
+\
+Criei  um servi\'e7o : servi\'e7o movie. O arquivo chama movie.service.ts. \
+\
+Fiz um import em app.module.ts e inclui em MovieService como um provedor.\
+\
+Criei appRoutes para criar caminhos de router. Uma para a p\'e1gina inicial e outra \'e9 para a p\'e1gina de filme individual.\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf6 \cb3 \
+\pard\pardeftab720\partightenfactor0
+
+\b\fs52 \cf2 \cb3 2.Geracao da API KEY:\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs32 \cf4 \cb3 \
+Integra\'e7\'e3o  da  api_key em  https://www.themoviedb.org/.  Geracao da API Key em https://www.themoviedb.org/settings/account\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\f0 \cf6 \cb3 \
+\pard\pardeftab720\partightenfactor0
+
+\b\fs52 \cf2 3.Cria\'e7\'e3o de componente Home:\
+\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs32 \cf4 \cb3 Como foi criado Router em app.component.html, usei a  sa\'edda do route outlet.\
+<router-outlet> </ router-outlet>.\
+\
+Criei outro componente chamado Home( home.component.ts) Importando o MovieService.\
+\
+Em seguida, criei todos m\'e9todos no MovieService para busca de dados.
+\f0 \cf6 \cb3 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs52 \cf2 \cb3 4. Interpola\'e7\'e3o das strings:\
+\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs32 \cf4 \cb3 Em home.component.html  fiz a  interpola\'e7\'e3o de strings.\
+\
+Abaixo de cada filme exibido, foi adicionado um bot\'e3o Visualizar detalhes e que fa\'e7a a busca por ID do filme usando routerLink.\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf6 \cb3 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\b\fs52 \cf2 \cb3 5. Cria\'e7\'e3o de componente filme:\cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs32 \cf4 \cb3 Agora, mostrar os detalhes individuais do filme por ID. \
+\
+Criei um componente chamado film. \
+\
+Em app.module.ts esta a appRoutes,  para exibir o filme individual, movie /: movieID.\
+\
+Agora, em movie.component.ts, usei par\'e2metros de router. Para isso, foi importado o ActivatedRoute, ParamMap de @ angular / router.\
+\
+O valor do movieID (ser\'e1 encontrado) com o params e, em seguida, passara esse valor para a fun\'e7\'e3o getMovie () para buscar os detalhes do filme individual.
+\f0 \cf6 \cb3 \
+}
